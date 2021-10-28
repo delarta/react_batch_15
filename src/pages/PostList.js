@@ -1,4 +1,15 @@
 import React, { useEffect, useState } from "react";
+import {
+  Input,
+  Form,
+  FormGroup,
+  Label,
+  Button,
+  Card,
+  CardBody,
+  CardTitle,
+  CardText,
+} from "reactstrap";
 
 function PostList() {
   const url = "https://jsonplaceholder.typicode.com/posts";
@@ -41,44 +52,36 @@ function PostList() {
   };
 
   return (
-    <div>
-      <h1>Blog Posts</h1>
+    <div className="mt-4">
+      <Card className="mb-4">
+        <CardBody>
+          <Form onSubmit={(e) => handleSubmit(e)}>
+            <FormGroup>
+              <Label>Title</Label>
+              <Input type="text" onChange={(e) => setTitle(e.target.value)} />
+            </FormGroup>
 
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          type="text"
-          placeholder="title"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <br />
-        <br />
-        <input
-          type="text"
-          placeholder="body"
-          onChange={(e) => setBody(e.target.value)}
-        />
-        <br />
-        <br />
-        <button>Add New Post</button>
-        <br />
-        <br />
-      </form>
+            <FormGroup>
+              <Label>Body</Label>
+              <Input type="text" onChange={(e) => setBody(e.target.value)} />
+            </FormGroup>
+            <Button color="primary">Add New Post</Button>
+          </Form>
+        </CardBody>
+      </Card>
 
       {errMessage && <p style={{ color: "red" }}>{errMessage}</p>}
 
+      <h2>Blog Posts</h2>
+
       <div>
         {posts.map((post) => (
-          <div
-            style={{
-              padding: "20px",
-              marginBottom: "10px",
-              border: "1px solid #dadada",
-            }}
-            key={post.id}
-          >
-            <h2>{post.title}</h2>
-            <p>{post.body}</p>
-          </div>
+          <Card className="mb-3">
+            <CardBody>
+              <CardTitle tag="h4">{post.title}</CardTitle>
+              <CardText>{post.body}</CardText>
+            </CardBody>
+          </Card>
         ))}
       </div>
     </div>

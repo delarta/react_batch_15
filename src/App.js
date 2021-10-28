@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import { Container, Button } from "reactstrap";
 
-import PostList from "./PostList";
+import PostList from "./pages/PostList";
 
 function App() {
   const [visible, setVisible] = useState(true);
 
   return (
-    <div>
-      <button onClick={() => setVisible(!visible)}>Show/hide Component</button>
+    <Container className="pt-5">
+      <Button color="primary" onClick={() => setVisible(!visible)}>
+        Show/hide Component
+      </Button>
       {visible ? <PostList /> : ""}
-    </div>
+    </Container>
   );
 }
 
