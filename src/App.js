@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import {
-  Container,
   Navbar,
   Collapse,
   Nav,
@@ -9,21 +8,21 @@ import {
   NavbarToggler,
 } from "reactstrap";
 
-import PostList from "./pages/PostList";
-import Home from "./pages/Home";
-import UserList from "./pages/UserList";
-import UserDetails from "./pages/UserDetails";
-import PostListDark from "./pages/PostListDark";
-import Cursor from "./pages/Cursor";
-import MoviesList from "./pages/MoviesList";
-import CatFactApp from "./pages/CatFactApp";
-import Todos from "./pages/Todos";
+import PostList from "./pages/Example/PostList";
+import Home from "./pages/Example/Home";
+import UserList from "./pages/Example/UserList";
+import UserDetails from "./pages/Example/UserDetails";
+import PostListDark from "./pages/Example/PostListDark";
+import Cursor from "./pages/Example/Cursor";
+import MoviesList from "./pages/Example/MoviesList";
+import CatFactApp from "./pages/Example/CatFactApp";
+import Todos from "./pages/TodoPage/Todos";
 import CarExample from "./pages/CarExample/CarExample";
 
 function App() {
   return (
     <BrowserRouter>
-      {/* <Navbar
+      <Navbar
         style={{ position: "fixed", zIndex: "100", width: "100%" }}
         color="light"
         expand="md"
@@ -37,44 +36,15 @@ function App() {
                 Home
               </Link>
             </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="/posts">
-                Post List
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="/postsDark">
-                Post Dark
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="/users">
-                User List
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="/cat-facts">
-                Random cat facts
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="/movies">
-                Movies List
-              </Link>
-            </NavItem>
+
             <NavItem>
               <Link className="nav-link" to="/todos">
                 Todos
               </Link>
             </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="/car">
-                Car
-              </Link>
-            </NavItem>
           </Nav>
         </Collapse>
-      </Navbar> */}
+      </Navbar>
       <Switch>
         <Route exact path="/">
           <Home />

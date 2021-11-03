@@ -1,4 +1,4 @@
-import "../css/cursor.css";
+import "../../css/cursor.css";
 
 import React, { Component } from "react";
 
