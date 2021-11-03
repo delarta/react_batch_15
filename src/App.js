@@ -15,11 +15,15 @@ import UserList from "./pages/UserList";
 import UserDetails from "./pages/UserDetails";
 import PostListDark from "./pages/PostListDark";
 import Cursor from "./pages/Cursor";
+import MoviesList from "./pages/MoviesList";
+import CatFactApp from "./pages/CatFactApp";
+import Todos from "./pages/Todos";
+import CarExample from "./pages/CarExample/CarExample";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar
+      {/* <Navbar
         style={{ position: "fixed", zIndex: "100", width: "100%" }}
         color="light"
         expand="md"
@@ -49,38 +53,63 @@ function App() {
               </Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to="/cursors">
-                Cursor Example
+              <Link className="nav-link" to="/cat-facts">
+                Random cat facts
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link" to="/movies">
+                Movies List
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link" to="/todos">
+                Todos
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link" to="/car">
+                Car
               </Link>
             </NavItem>
           </Nav>
         </Collapse>
-      </Navbar>
-      <Container style={{ paddingTop: "65px" }}>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/posts">
-            <PostList />
-          </Route>
-          <Route exact path="/postsDark">
-            <PostListDark />
-          </Route>
-          <Route exact path="/users">
-            <UserList />
-          </Route>
-          <Route exact path="/users/:id">
-            <UserDetails />
-          </Route>
-          <Route exact path="/cursors">
-            <Cursor />
-          </Route>
-          <Route path="/:any">
-            <h1>404 Not Found</h1>
-          </Route>
-        </Switch>
-      </Container>
+      </Navbar> */}
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/posts">
+          <PostList />
+        </Route>
+        <Route exact path="/postsDark">
+          <PostListDark />
+        </Route>
+        <Route exact path="/users">
+          <UserList />
+        </Route>
+        <Route exact path="/users/:id">
+          <UserDetails />
+        </Route>
+        <Route exact path="/cursors">
+          <Cursor />
+        </Route>
+        <Route exact path="/movies">
+          <MoviesList />
+        </Route>
+        <Route exact path="/cat-facts">
+          <CatFactApp />
+        </Route>
+        <Route exact path="/todos">
+          <Todos />
+        </Route>
+        <Route exact path="/car">
+          <CarExample />
+        </Route>
+        <Route path="/:any">
+          <h1>404 Not Found</h1>
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }

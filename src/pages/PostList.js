@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
   Input,
   Form,
@@ -12,7 +13,7 @@ import {
 } from "reactstrap";
 
 function PostList() {
-  const url = "https://jsonplaceholder.typicode.com/posts";
+  const url = process.env.REACT_APP_JSONPLACEHOLDER_API
 
   const [posts, setPosts] = useState([]);
   const [title, setTitle] = useState("");
@@ -20,35 +21,33 @@ function PostList() {
   const [errMessage, setErrMessage] = useState("");
 
   useEffect(() => {
-    // HTTP METHOD: GET, POST, PUT, DELETE
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setPosts(data));
+    axios.get(`${url}posts`).then((response) => setPosts(response.data));
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(url, {
-        method: "POST",
-        body: JSON.stringify({
-          title,
-          body,
-          userId: 1,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
+      const response = await axios.post(url, {
+        title,
+        body,
+        userId: 1,
       });
 
-      const data = await response.json();
-
-      setPosts([data, ...posts]);
+      setPosts([response.data, ...posts]);
     } catch (err) {
       console.log(err);
       setErrMessage("Post failed to create");
     }
+  };
+
+  const handleDelete = (postId) => {
+    axios
+      .delete(`${url}/posts/${postId}`)
+      .then(() => {
+        setPosts([...posts.filter((post) => post.id !== postId)]);
+        alert("Post deleted!");
+      });
   };
 
   return (
@@ -80,6 +79,9 @@ function PostList() {
             <CardBody>
               <CardTitle tag="h4">{post.title}</CardTitle>
               <CardText>{post.body}</CardText>
+              <Button color="danger" onClick={() => handleDelete(post.id)}>
+                Delete
+              </Button>
             </CardBody>
           </Card>
         ))}

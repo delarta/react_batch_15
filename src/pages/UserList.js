@@ -3,13 +3,13 @@ import { ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
 
 function UserList() {
-  const url = "https://jsonplaceholder.typicode.com/users";
+  const url = process.env.REACT_APP_JSONPLACEHOLDER_API;
 
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     // HTTP METHOD: GET, POST, PUT, DELETE
-    fetch(url)
+    fetch(`${url}users`)
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);

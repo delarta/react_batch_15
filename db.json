@@ -1,0 +1,117 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "Data 1",
+      "author": "Rudi",
+      "id": 2
+    },
+    {
+      "title": "Data berikutnya",
+      "author": "Rudi",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "anggota": [
+    {
+      "nama": "Rudi",
+      "email": "rudi@mail.com",
+      "id": 1
+    },
+    {
+      "nama": "Endi",
+      "email": "endi@mail.com",
+      "id": 2
+    },
+    {
+      "nama": "Diqo",
+      "email": "diqo@mail.com",
+      "id": 3
+    },
+    {
+      "nama": "rudi lagi",
+      "email": "rudilagi@mail.com",
+      "id": 4
+    }
+  ],
+  "todolist": [
+    {
+      "id": 1,
+      "task": "go to school"
+    },
+    {
+      "id": 2,
+      "task": "sleep"
+    },
+    {
+      "task": "Tulis",
+      "id": 3
+    },
+    {
+      "task": "Tulis",
+      "id": 4
+    },
+    {
+      "task": "Tulis",
+      "id": 5
+    },
+    {
+      "task": "S",
+      "id": 6
+    },
+    {
+      "task": "S",
+      "id": 7
+    },
+    {
+      "task": "S",
+      "id": 8
+    },
+    {
+      "task": "S",
+      "id": 9
+    },
+    {
+      "task": "S",
+      "id": 10
+    },
+    {
+      "task": "S",
+      "id": 11
+    },
+    {
+      "task": "S",
+      "id": 12
+    },
+    {
+      "task": "S",
+      "id": 13
+    },
+    {
+      "task": "task name",
+      "id": 14
+    },
+    {
+      "task": "Hore",
+      "id": 15
+    },
+    {
+      "task": "Add me",
+      "id": 16
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
