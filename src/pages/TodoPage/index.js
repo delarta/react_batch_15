@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import {
   ListGroup,
   ListGroupItem,
@@ -11,8 +11,15 @@ import {
   Container,
 } from "reactstrap";
 
+import {
+  getTodos,
+  updateTodo,
+  addTodo,
+  deleteTodo,
+} from "../../redux/actions/todosAction";
+
 function Todos() {
-  const todosStore = useSelector((state) => state.todos);
+  const todosStore = useSelector((state) => state.todos.data);
   const url = "http://localhost:3004/todolist";
   const [todos, setTodos] = useState([]);
   const [taskName, setTaskName] = useState("");
@@ -20,6 +27,16 @@ function Todos() {
   const [updatedName, setUpdatedName] = useState("");
 
   const dispatch = useDispatch();
+
+  const loggedIn = useSelector((state) => state.accounts.loggedIn);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!loggedIn) {
+      history.push("/login");
+    }
+  }, [loggedIn]);
 
   useEffect(async () => {
     if (todosStore.length === 0) {
@@ -29,7 +46,7 @@ function Todos() {
 
         setTodos(data);
 
-        dispatch({ type: "GET_TODOS", payload: data });
+        dispatch(getTodos(data));
       } catch (error) {
         console.log(error);
       }
@@ -47,7 +64,7 @@ function Todos() {
         method: "POST",
         body: JSON.stringify({
           task: taskName,
-          id: todos[todos.length - 1].id + 1,
+          id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +73,7 @@ function Todos() {
 
       const data = await response.json();
 
-      dispatch({ type: "ADD_TODO", payload: data });
+      dispatch(addTodo(data));
 
       setTodos([...todos, data]);
       setTaskName("");
@@ -73,7 +90,7 @@ function Todos() {
 
       await response.json();
 
-      dispatch({ type: "DELETE_TODO", payload: todoId });
+      dispatch(deleteTodo(todoId));
 
       setTodos([...todos.filter((todo) => todo.id !== todoId)]);
     } catch (error) {
@@ -102,19 +119,12 @@ function Todos() {
         throw Error();
       }
 
-      dispatch({
-        type: "UPDATE_TODO",
-        payload: { data: data, id: targetId },
-      });
+      dispatch(updateTodo(data, Number(targetId)));
 
       setTodos([
-        ...todos.map((todo) => {
-          if (todo.id === Number(targetId)) {
-            return { ...todo, ...data };
-          } else {
-            return todo;
-          }
-        }),
+        ...todos.map((todo) =>
+          todo.id === Number(targetId) ? { ...todo, ...data } : todo
+        ),
       ]);
     } catch (error) {
       alert("Update Failed!");

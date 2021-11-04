@@ -1,9 +1,20 @@
 import { Container, ListGroup, ListGroupItem } from "reactstrap";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useHistory } from "react-router";
 
 function Home() {
-  const posts = useSelector((state) => state.posts);
-  const todos = useSelector((state) => state.todos);
+  const posts = useSelector((state) => state.posts.data);
+  const todos = useSelector((state) => state.todos.data);
+  const loggedIn = useSelector((state) => state.accounts.loggedIn);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!loggedIn) {
+      history.push("/login");
+    }
+  }, [loggedIn]);
 
   return (
     <Container style={{ paddingTop: "65px" }}>

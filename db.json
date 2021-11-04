@@ -47,27 +47,49 @@
   ],
   "todolist": [
     {
-      "id": 2,
-      "task": "Sudah Siang"
+      "task": "Work Plis",
+      "id": 1
     },
     {
-      "id": 4,
-      "task": "Tidur malam"
+      "task": "Tambah lagi",
+      "id": 2
     },
     {
-      "task": "makan malam",
-      "id": 5
+      "task": "sesuatu",
+      "id": 3
     },
     {
-      "task": "tidur lagi",
-      "id": 7
-    },
-    {
-      "task": "Nambah",
-      "id": 11
+      "task": "halo halo",
+      "id": 4
     }
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "accounts": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@email.com",
+      "password": "pass_admin"
+    },
+    {
+      "name": "Delarta Tok",
+      "email": "delartatok@mail.com",
+      "password": "qweasd123",
+      "id": 3
+    },
+    {
+      "name": "Meong",
+      "email": "meong@mail.com",
+      "password": "qweasd123",
+      "id": 4
+    },
+    {
+      "name": "Hilmy",
+      "email": "hilmy@mail.com",
+      "password": "qweqweqwe",
+      "id": 5
+    }
+  ]
 }
