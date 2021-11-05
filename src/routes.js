@@ -16,6 +16,11 @@ import LoginPage from "./pages/LoginPage";
 const routes = [
   {
     path: "/",
+    component: Todos,
+    exact: true
+  },
+  {
+    path: "/home",
     component: Home,
     exact: true
   },
@@ -59,11 +64,11 @@ const routes = [
     component: CatFactApp,
     exact: true
   },
-  {
-    path: "/todos",
-    component: Todos,
-    exact: true
-  },
+  // {
+  //   path: "/todos",
+  //   component: Todos,
+  //   exact: true
+  // },
   {
     path: "/car",
     component: CarExample,

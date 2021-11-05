@@ -47,20 +47,20 @@
   ],
   "todolist": [
     {
-      "task": "Work Plis",
-      "id": 1
-    },
-    {
-      "task": "Tambah lagi",
-      "id": 2
+      "id": 1,
+      "task": "Sleep"
     },
     {
       "task": "sesuatu",
       "id": 3
     },
     {
-      "task": "halo halo",
+      "task": "new one",
       "id": 4
+    },
+    {
+      "task": "one two",
+      "id": 5
     }
   ],
   "profile": {
