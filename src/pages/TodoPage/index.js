@@ -12,15 +12,14 @@ import {
 } from "reactstrap";
 
 import {
-  getTodos,
-  updateTodo,
-  addTodo,
-  deleteTodo,
+  updateTodoStart,
+  addTodoStart,
+  deleteTodoStart,
+  getTodosStart,
 } from "../../redux/actions/todosAction";
 
 function Todos() {
   const todosStore = useSelector((state) => state.todos.data);
-  const url = "http://localhost:3004/todolist";
   const [todos, setTodos] = useState([]);
   const [taskName, setTaskName] = useState("");
   const [targetId, setTargetId] = useState("");
@@ -40,95 +39,25 @@ function Todos() {
 
   useEffect(async () => {
     if (todosStore.length === 0) {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        setTodos(data);
-
-        dispatch(getTodos(data));
-      } catch (error) {
-        console.log(error);
-      }
+      dispatch(getTodosStart());
     } else {
       setTodos(todosStore);
     }
-  }, []);
+  }, [todosStore]);
 
   const handleClick = async (e) => {
     e.preventDefault();
     if (!taskName) return;
-
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        body: JSON.stringify({
-          task: taskName,
-          id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const data = await response.json();
-
-      dispatch(addTodo(data));
-
-      setTodos([...todos, data]);
-      setTaskName("");
-    } catch (error) {
-      alert("Error when adding a task");
-    }
+    dispatch(addTodoStart(taskName));
   };
 
   const handleDelete = async (todoId) => {
-    try {
-      const response = await fetch(`${url}/${todoId}`, {
-        method: "DELETE",
-      });
-
-      await response.json();
-
-      dispatch(deleteTodo(todoId));
-
-      setTodos([...todos.filter((todo) => todo.id !== todoId)]);
-    } catch (error) {
-      alert("Failed to delete task");
-    }
+    dispatch(deleteTodoStart(todoId));
   };
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch(`${url}/${targetId}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          id: Number(targetId),
-          task: updatedName,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const data = await response.json();
-
-      if (Object.keys(data).length === 0) {
-        throw Error();
-      }
-
-      dispatch(updateTodo(data, Number(targetId)));
-
-      setTodos([
-        ...todos.map((todo) =>
-          todo.id === Number(targetId) ? { ...todo, ...data } : todo
-        ),
-      ]);
-    } catch (error) {
-      alert("Update Failed!");
-    }
+    dispatch(updateTodoStart(updatedName, Number(targetId)));
   };
 
   return (

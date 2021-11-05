@@ -5,7 +5,6 @@ import { Navbar, Collapse, Nav, NavItem, NavbarToggler } from "reactstrap";
 import routes from "./routes";
 
 function App() {
-
   return (
     <BrowserRouter>
       <Navbar
@@ -18,11 +17,6 @@ function App() {
         <Collapse navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <Link className="nav-link" to="/">
-                Home
-              </Link>
-            </NavItem>
-            <NavItem>
               <Link className="nav-link" to="/todos">
                 Todos
               </Link>
@@ -32,7 +26,6 @@ function App() {
       </Navbar>
 
       <Switch>
-
         {routes.map((route) => (
           <Route key={route.path} exact={route.exact} path={route.path}>
             <route.component />

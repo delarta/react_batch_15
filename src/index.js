@@ -7,9 +7,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import rootReducer from "./redux/reducers";
 
 import { Provider } from "react-redux";
-import { createStore } from "redux"
+import { createStore, applyMiddleware } from "redux";
+import createSagaMiddleware from "redux-saga";
+import todosSaga from "./redux/sagas/todos";
 
-const store = createStore(rootReducer)
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(todosSaga);
 
 ReactDOM.render(
   <Provider store={store}>
