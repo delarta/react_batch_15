@@ -14,6 +14,8 @@ import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateLoginStatus } from "../../redux/actions/accountsAction";
 
+import style from './style.module.css'
+
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -62,6 +64,7 @@ function LoginPage() {
         alignItems: "center",
         justifyContent: "center",
       }}
+      className={style.background}
     >
       <Card style={{ width: "400px" }}>
         <CardBody>

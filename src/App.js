@@ -7,7 +7,7 @@ import routes from "./routes";
 function App() {
   return (
     <BrowserRouter>
-      <Navbar
+      {/* <Navbar
         style={{ position: "fixed", zIndex: "100", width: "100%" }}
         color="light"
         expand="md"
@@ -23,7 +23,7 @@ function App() {
             </NavItem>
           </Nav>
         </Collapse>
-      </Navbar>
+      </Navbar> */}
 
       <Switch>
         {routes.map((route) => (

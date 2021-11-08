@@ -9,11 +9,12 @@ import CarExample from "./pages/CarExample/CarExample";
 import Todos from "./pages/TodoPage/";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
+import LandingPage from "./pages/LandingPage";
 
 const routes = [
   {
     path: "/",
-    component: Todos,
+    component: LandingPage,
     exact: true,
   },
   {
