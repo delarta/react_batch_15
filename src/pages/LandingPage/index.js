@@ -92,6 +92,20 @@ function LandingPage() {
               </p>
             </div>
           </div>
+          <div className={style.testimony__item}>
+            <img src="https://i.pravatar.cc/150?img=8" alt="avatar" />
+            <div>
+              <h2>Justin</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Doloremque voluptatum obcaecati impedit sit blanditiis placeat
+                nisi velit quam, reprehenderit modi eum, voluptatem autem
+                numquam? Alias, rem temporibus odio velit necessitatibus sit aut
+                recusandae laboriosam, ratione consectetur dignissimos iusto
+                molestiae aliquid.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
