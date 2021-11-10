@@ -1,0 +1,11 @@
+.cursor {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #eb988c;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 4px #eb988c;
+  background-color: #ffffff6c;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: none;
+}

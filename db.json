@@ -1,0 +1,167 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "Data 1",
+      "author": "Rudi",
+      "id": 2
+    },
+    {
+      "title": "Data berikutnya",
+      "author": "Rudi",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "anggota": [
+    {
+      "nama": "Rudi",
+      "email": "rudi@mail.com",
+      "id": 1
+    },
+    {
+      "nama": "Endi",
+      "email": "endi@mail.com",
+      "id": 2
+    },
+    {
+      "nama": "Diqo",
+      "email": "diqo@mail.com",
+      "id": 3
+    },
+    {
+      "nama": "rudi lagi",
+      "email": "rudilagi@mail.com",
+      "id": 4
+    }
+  ],
+  "todolist": [
+    {
+      "task": "Work Plis",
+      "id": 1
+    },
+    {
+      "task": "Tambah lagi",
+      "id": 2
+    },
+    {
+      "task": "hoho",
+      "id": 6
+    },
+    {
+      "task": "hoho",
+      "id": 9
+    },
+    {
+      "task": "hoho",
+      "id": 10
+    },
+    {
+      "task": "hoho",
+      "id": 11
+    },
+    {
+      "task": "hoho",
+      "id": 12
+    },
+    {
+      "task": "hoho",
+      "id": 13
+    },
+    {
+      "task": "hoho",
+      "id": 14
+    },
+    {
+      "task": "hoho",
+      "id": 15
+    },
+    {
+      "task": "hoho",
+      "id": 16
+    },
+    {
+      "task": "hoho",
+      "id": 17
+    },
+    {
+      "task": "hoho",
+      "id": 18
+    },
+    {
+      "task": "hoho",
+      "id": 19
+    },
+    {
+      "task": "hoho",
+      "id": 20
+    },
+    {
+      "task": "hoho",
+      "id": 21
+    },
+    {
+      "task": "hoho",
+      "id": 22
+    },
+    {
+      "task": "hoho",
+      "id": 23
+    },
+    {
+      "task": "hoho",
+      "id": 24
+    },
+    {
+      "task": "hoho",
+      "id": 25
+    },
+    {
+      "task": "hoho",
+      "id": 26
+    },
+    {
+      "task": "hoho",
+      "id": 27
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "accounts": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@email.com",
+      "password": "pass_admin"
+    },
+    {
+      "name": "Delarta Tok",
+      "email": "delartatok@mail.com",
+      "password": "qweasd123",
+      "id": 3
+    },
+    {
+      "name": "Meong",
+      "email": "meong@mail.com",
+      "password": "qweasd123",
+      "id": 4
+    },
+    {
+      "name": "Hilmy",
+      "email": "hilmy@mail.com",
+      "password": "qweqweqwe",
+      "id": 5
+    }
+  ]
+}

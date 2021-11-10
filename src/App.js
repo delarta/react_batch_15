@@ -1,15 +1,42 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { Navbar, Collapse, Nav, NavItem, NavbarToggler } from "reactstrap";
 
-import PostList from "./PostList";
+import routes from "./routes";
 
 function App() {
-  const [visible, setVisible] = useState(true);
-
   return (
-    <div>
-      <button onClick={() => setVisible(!visible)}>Show/hide Component</button>
-      {visible ? <PostList /> : ""}
-    </div>
+    <BrowserRouter>
+      {/* <Navbar
+        style={{ position: "fixed", zIndex: "100", width: "100%" }}
+        color="light"
+        expand="md"
+        light
+      >
+        <NavbarToggler onClick={function noRefCheck() {}} />
+        <Collapse navbar>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <Link className="nav-link" to="/todos">
+                Todos
+              </Link>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar> */}
+
+      <Switch>
+        {routes.map((route) => (
+          <Route key={route.path} exact={route.exact} path={route.path}>
+            <route.component />
+          </Route>
+        ))}
+
+        <Route path="/:any">
+          <h1>404 Not Found</h1>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
