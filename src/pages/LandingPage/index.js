@@ -99,6 +99,15 @@ function LandingPage() {
               </p>
             </div>
           </div>
+          <div className={style.testimony__item}>
+            <img src="https://i.pravatar.cc/150?img=9" alt="avatar" />
+            <div>
+              <h2>JustinTwo</h2>
+              <p>
+                Lorem ipsum dolor sit 
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
