@@ -3,13 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import rootReducer from "./redux/reducers";
-
+import store from "./store";
 import { Provider } from "react-redux";
-import { createStore } from "redux"
-
-const store = createStore(rootReducer)
 
 ReactDOM.render(
   <Provider store={store}>

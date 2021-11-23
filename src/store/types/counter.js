@@ -1,0 +1,5 @@
+export const INCREMENT_START="counter/INCREMENT_START"
+export const DECREMENT_START="counter/DECREMENT_START"
+export const INCREMENT_COUNTER="counter/INCREMENT_COUNTER"
+export const DECREMENT_COUNTER="counter/DECREMENT_COUNTER"
+export const SHOW_SOMETHING="counter/SHOW_SOMETHING"

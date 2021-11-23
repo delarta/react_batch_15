@@ -1,49 +1,44 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import { Navbar, Collapse, Nav, NavItem, NavbarToggler } from "reactstrap";
-
-import routes from "./routes";
+import { useSelector, useDispatch } from "react-redux";
+import { saySomething, showSomething } from "./store/actions/hello";
+import { incrementStart, decrementStart } from "./store/actions/counter";
 
 function App() {
+  const hello = useSelector((state) => state.hello.data);
+  const counter = useSelector((state) => state.counter.data);
+
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(saySomething("This is something else"));
+  };
+  
+  const handleShow = () => {
+    dispatch(showSomething());
+  };
+
+  const handleIncrement = () => {
+    dispatch(incrementStart())
+  }
+
+  const handleDecrement = () => {
+    dispatch(decrementStart())
+  }
 
   return (
-    <BrowserRouter>
-      <Navbar
-        style={{ position: "fixed", zIndex: "100", width: "100%" }}
-        color="light"
-        expand="md"
-        light
-      >
-        <NavbarToggler onClick={function noRefCheck() {}} />
-        <Collapse navbar>
-          <Nav className="me-auto" navbar>
-            <NavItem>
-              <Link className="nav-link" to="/">
-                Home
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="/todos">
-                Todos
-              </Link>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
-
-      <Switch>
-
-        {routes.map((route) => (
-          <Route key={route.path} exact={route.exact} path={route.path}>
-            <route.component />
-          </Route>
-        ))}
-
-        <Route path="/:any">
-          <h1>404 Not Found</h1>
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <div>
+      <h1>{hello}</h1>
+      <button onClick={() => handleClick()}>Change text</button>
+      
+      <button onClick={() => handleShow()}>Show Something</button>
+      <br />
+      <br />
+      <br />
+      <h1>{counter}</h1>
+      <button onClick={() => handleIncrement()}>Increment</button>
+      <button onClick={() => handleDecrement()}>Decrement</button>
+      
+    </div>
   );
 }
 
