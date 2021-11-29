@@ -1,0 +1,5 @@
+export const ADD_TO_CART ="cart/ADD_TO_CART"
+export const CHECKOUT ="cart/CHECKOUT"
+export const SET_TOTAL_PRICE ="cart/SET_TOTAL_PRICE"
+export const INCREASE_ITEM ="cart/INCREASE_ITEM"
+export const DECREASE_ITEM ="cart/DECREASE_ITEM"
