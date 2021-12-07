@@ -1,32 +1,44 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { Container } from "reactstrap";
-import Cart from "./components/Cart";
-import ProductItem from "./components/ProductItem";
-import "./sass/main.scss";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import React from "react";
+import MeetingRoom from "./pages/MeetingRoom";
 
-function App() {
-  const products = useSelector(({ products }) => products.data);
-
+const App = () => {
   return (
-    <div>
-      <Container className="py-5">
-        <div className="main__container">
-          {products.map((product) => (
-            <ProductItem
-              key={product.id}
-              product={product}
-              // setCart={setCart}
-            />
-          ))}
-        </div>
-
-        <div className="cart__container">
-          <Cart />
-        </div>
-      </Container>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/meeting/:roomName">
+          <MeetingRoom />
+        </Route>
+        <Route exact path="/">
+          {() => {
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  height: "100vh",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Link
+                  to="/meeting/importantMeeting"
+                  style={{
+                    all: "unset",
+                    backgroundColor: "teal",
+                    color: "white",
+                    padding: "8px 12px",
+                    fontSize: "24px",
+                  }}
+                >
+                  Join a Room
+                </Link>
+              </div>
+            );
+          }}
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
